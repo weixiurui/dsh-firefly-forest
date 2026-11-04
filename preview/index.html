@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>萤火森林 · 效果预览</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #050807; }
+  body { font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; color: #e6efe0; }
+  .shell { position: relative; height: 100vh; display: grid; grid-template-columns: 220px 1fr; }
+  .side {
+    background: rgba(8, 13, 10, 0.55);
+    border-right: 1px solid rgba(190, 230, 170, 0.10);
+    padding: 18px 14px;
+    backdrop-filter: blur(8px);
+  }
+  .brand { font-size: 13px; letter-spacing: 0.18em; color: #9fb894; margin-bottom: 18px; }
+  .nav { display: grid; gap: 8px; font-size: 12.5px; color: #b9cbb0; }
+  .nav span { padding: 7px 10px; border-radius: 8px; background: rgba(150, 210, 120, 0.06); }
+  .main { padding: 34px 40px; overflow: auto; }
+  .card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 26px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(190, 230, 170, 0.14);
+    background: rgba(8, 14, 10, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  }
+  h1 { margin: 0 0 10px; font-size: 20px; font-weight: 500; }
+  p { margin: 0 0 12px; font-size: 13px; line-height: 1.8; color: #b9cbb0; }
+  .hint { font-size: 11.5px; color: #8fa886; }
+  .chip { display: inline-block; margin-top: 14px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(190,230,170,0.22); font-size: 11.5px; color: #cfdfc4; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand">DSH · PREVIEW</div>
+    <div class="nav">
+      <span>会话 · 当前</span>
+      <span>工作台 · 萤火森林</span>
+      <span>插件</span>
+      <span>设置</span>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="card">
+      <h1>萤火森林 · 效果预览</h1>
+      <p>这是一页独立的场景预览：真实的 DSH 插件会把同一层画面垫在界面后面，并按当前主题把界面调成半透明。</p>
+      <p>看一会儿：草叶上的萤火虫会呼吸明灭，偶尔有一只飞到树枝附近，照亮猫头鹰的眼睛和轮廓；叶子上的蛾子也会被路过的光点带出来。</p>
+      <div class="hint">页面上的卡片、侧栏是模拟的界面层；真正的安装版会接管整个 DSH 窗口。</div>
+      <div class="chip">关闭此标签页即可退出预览</div>
+    </div>
+  </main>
+</div>
+
+<script>
+  window.__ModuleLoader__ = { load: (module) => { window.__fireflyModule = module } }
+</script>
+<script src="../lib/client.js"></script>
+<script>
+  ;(function () {
+    const module = window.__fireflyModule
+    const ReactStub = {
+      createElement: () => null,
+      useState: (value) => [value, () => {}],
+      useEffect: () => {}
+    }
+    const factory = module.factory((name) => (name === 'react' ? ReactStub : {}))
+    const ctx = {
+      theme: {
+        overrideTokens: () => () => {},
+        setTheme: () => {},
+        getTheme: () => ({ active: { colorScheme: 'dark' } })
+      },
+      desktopWorkbenches: { register: () => () => {} },
+      effect: (fn) => {
+        try { fn() } catch (error) { console.warn(error) }
+      },
+      on: () => () => {}
+    }
+    factory.apply(ctx)
+  })()
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "dsh-firefly-forest",
+  "version": "0.2.2",
+  "description": "萤火森林：暗色灌木林、萤火虫与夜行小动物的环境背景",
+  "type": "module",
+  "main": "./dsh/index.js",
+  "exports": {
+    ".": "./dsh/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  },
+  "files": [
+    "dsh",
+    "lib",
+    "cordis.patch.yml",
+    "preview",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "theme",
+    "background",
+    "firefly"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weixiurui/dsh-firefly-forest.git"
+  },
+  "homepage": "https://github.com/weixiurui/dsh-firefly-forest#readme",
+  "bugs": {
+    "url": "https://github.com/weixiurui/dsh-firefly-forest/issues"
+  },
+  "author": "weixiurui",
+  "license": "MIT"
+}
