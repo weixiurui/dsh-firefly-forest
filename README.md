@@ -1,5 +1,7 @@
 # dsh-firefly-forest
 
+![萤火森林](assets/screenshot-1.png)
+
 萤火森林：给 DeepSeek Harness（dsh）的界面后面垫一层夏夜的灌木林 —— 草叶上的萤火虫呼吸明灭，飞过的光点偶尔照亮树枝上的猫头鹰，或者叶子上的蛾子。
 
 An ambient firefly forest behind the DSH Web UI: a dark shrub layer, breathing fireflies on grass blades, and an owl or a moth that lights up when a drifting spark passes by.
