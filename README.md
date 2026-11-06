@@ -54,8 +54,8 @@ dsh plugin --profile web add ./dsh-firefly-forest.tgz
 
 ## 兼容性 / Compatibility
 
-- 需要带 `theme` 服务的 dsh Web 宿主（官方 dsh web 与基于它的桌面客户端均可）
-- 「萤火森林」工作台面板只出现在提供 `desktopWorkbenches` 的客户端（DSH Desktop）；没有该服务的客户端上插件退化为纯背景，不影响加载
+- 面向 **DSH Desktop**：背景由 `theme` 服务驱动，「萤火森林」工作台面板由 `desktopWorkbenches` 服务提供
+- 纯 `dsh web`（没有 `desktopWorkbenches`）上，客户端会等待该服务，背景暂不启动——这一条会在后续版本拆开，见 `CHANGELOG.md`
 
 ## 开发 / Development
 
