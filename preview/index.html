@@ -59,6 +59,15 @@
 
 <script>
   window.__ModuleLoader__ = { load: (module) => { window.__fireflyModule = module } }
+  // 预览页可以钉住夜相：preview/index.html?phase=0.55（0 = 入夜，0.5 = 深夜，1 = 将明）
+  try {
+    const phase = Number(new URLSearchParams(location.search).get('phase'))
+    if (Number.isFinite(phase) && phase >= 0 && phase <= 1) {
+      localStorage.setItem('dsh-firefly-forest.night.v1', JSON.stringify({ phase, at: Date.now() }))
+    }
+  } catch (error) {
+    /* 预览页在 file:// 下可能没有 localStorage */
+  }
 </script>
 <script src="../lib/client.js"></script>
 <script>
