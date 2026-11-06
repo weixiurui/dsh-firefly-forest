@@ -79,7 +79,9 @@
       useEffect: () => {}
     }
     const factory = module.factory((name) => (name === 'react' ? ReactStub : {}))
-    const lightPreview = new URLSearchParams(location.search).get('theme') === 'light'
+    const params = new URLSearchParams(location.search)
+    const lightPreview = params.get('theme') === 'light'
+    window.__dshFireflyPreview = true
     const ctx = {
       theme: {
         overrideTokens: () => () => {},
@@ -93,6 +95,11 @@
       on: () => () => {}
     }
     factory.apply(ctx)
+    // 预览用：?visitor=redpanda|raccoon|hedgehog|hare|fox|totoro 点名一只小动物
+    const visitor = params.get('visitor')
+    if (visitor && window.__dshFireflyPreviewScene) {
+      window.__dshFireflyPreviewScene.summon(visitor, Number(params.get('x')) || 700)
+    }
   })()
 </script>
 </body>
