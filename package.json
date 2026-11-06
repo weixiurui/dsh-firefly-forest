@@ -1,6 +1,6 @@
 {
   "name": "dsh-firefly-forest",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "萤火森林：暗色灌木林、萤火虫与夜行小动物的环境背景",
   "icon": "assets/icon-180.png",
   "type": "module",
@@ -31,6 +31,7 @@
     "assets",
     "screenshots.json",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "keywords": [
