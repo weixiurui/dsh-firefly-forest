@@ -79,11 +79,12 @@
       useEffect: () => {}
     }
     const factory = module.factory((name) => (name === 'react' ? ReactStub : {}))
+    const lightPreview = new URLSearchParams(location.search).get('theme') === 'light'
     const ctx = {
       theme: {
         overrideTokens: () => () => {},
         setTheme: () => {},
-        getTheme: () => ({ active: { colorScheme: 'dark' } })
+        getTheme: () => ({ active: { colorScheme: lightPreview ? 'light' : 'dark' } })
       },
       desktopWorkbenches: { register: () => () => {} },
       effect: (fn) => {
